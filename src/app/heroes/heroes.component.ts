@@ -19,7 +19,11 @@ export class HeroesComponent implements OnInit {
     this.selectedHero = hero;
     //console.log("selectedHero: " + hero.name);
   }
+/*   getHeroes(): void {
+    this.heroes = this.heroService.getHeroes(); 
+  } */
   getHeroes(): void {
-    this.heroes = this.heroService.getHeroes(); //Segundo se llama aquí, rellenando el array que luego se pintara en pantalla
+    this.heroService.getHeroes()
+        .subscribe(heroes => this.heroes = heroes);//Segundo se llama aquí, rellenando el array que luego se pintara en pantalla
   }
 }
